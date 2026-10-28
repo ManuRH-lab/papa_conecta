@@ -1,0 +1,410 @@
+[
+ {
+  "id": "CP-01",
+  "cu": "CU-04 / RF-02",
+  "descripcion": "El catálogo público muestra solo los productos activos",
+  "esperado": "6 productos (el producto «pendiente» no aparece)",
+  "obtenido": "6 productos; Amarilla Tumbay (pendiente) no aparece",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-02",
+  "cu": "CU-05 / RF-03",
+  "descripcion": "Filtrar por variedad Peruanita",
+  "esperado": "2 resultados (Junín y Cusco)",
+  "obtenido": "2 resultados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-03",
+  "cu": "CU-05 / RF-03",
+  "descripcion": "Filtrar por región Puno",
+  "esperado": "2 resultados (Huayro y Huamantanga)",
+  "obtenido": "2 resultados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-04",
+  "cu": "CU-05 / RF-03",
+  "descripcion": "Filtrar por rango de precio S/ 4.00 – 4.50",
+  "esperado": "3 resultados",
+  "obtenido": "3 resultados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-05",
+  "cu": "CU-05 (1a)",
+  "descripcion": "Precio mínimo mayor que el máximo",
+  "esperado": "Aviso y no se aplica el filtro de precio",
+  "obtenido": "Aviso mostrado; 6 resultados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-06",
+  "cu": "CU-05 (3a)",
+  "descripcion": "Filtro sin resultados (Amarilla Tumbay disponible)",
+  "esperado": "Mensaje «No hay productos con esos filtros» y opción de limpiar",
+  "obtenido": "Mensaje y botón «Limpiar filtros» visibles",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-07",
+  "cu": "Seguridad",
+  "descripcion": "Búsqueda con inyección SQL (' OR 1=1 --)",
+  "esperado": "Sin error; 0 resultados (consulta preparada)",
+  "obtenido": "0 resultados, sin error",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-08",
+  "cu": "CU-08 / RF-08",
+  "descripcion": "Detalle del producto con trazabilidad",
+  "esperado": "Productor, comunidad, provincia, región y altitud",
+  "obtenido": "Ficha «¿De dónde viene?» completa",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-09",
+  "cu": "CU-06 / RF-04",
+  "descripcion": "Agregar 10 kg de Huayro al carrito",
+  "esperado": "Mensaje de confirmación y contador = 1",
+  "obtenido": "Contador 1",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-10",
+  "cu": "CU-06 (2a)",
+  "descripcion": "Agregar más kilos que el stock (500 kg de Huamantanga, hay 60)",
+  "esperado": "El navegador lo impide y, si se fuerza, el servidor muestra la cantidad máxima",
+  "obtenido": "Bloqueado por el navegador; servidor: «Solo hay 60 kg disponibles»",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-11",
+  "cu": "CU-06 (3)",
+  "descripcion": "Agregar otra vez un producto que ya está en el carrito",
+  "esperado": "Se suman los kilos (10 + 5 = 15)",
+  "obtenido": "15 kg",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-12",
+  "cu": "CU-07 / RF-06",
+  "descripcion": "Cambiar la cantidad y recalcular el total",
+  "esperado": "Total S/ 79.00",
+  "obtenido": "S/ 79.00",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-13",
+  "cu": "CU-07 (6a)",
+  "descripcion": "Confirmar con datos incompletos o inválidos",
+  "esperado": "Campos marcados en rojo y no se registra el pedido",
+  "obtenido": "5 campos con error; pedidos en BD: 1",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-14",
+  "cu": "CU-07 / RF-05",
+  "descripcion": "Confirmar un pedido válido con un comprador nuevo",
+  "esperado": "Resumen con número de pedido; total, stock y comprador sin contraseña en BD",
+  "obtenido": "Pedido N.° 00002; total S/ 79.00; stock Huayro 110.00 → 100.00; contraseña NULL",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-15",
+  "cu": "CU-07 (8)",
+  "descripcion": "El carrito queda vacío después del pedido",
+  "esperado": "Contador = 0",
+  "obtenido": "Contador 0",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-16",
+  "cu": "CU-07 (7a)",
+  "descripcion": "Confirmar cuando el stock bajó (60 kg pedidos, quedan 50)",
+  "esperado": "Mensaje para ajustar la cantidad; no se registra el pedido",
+  "obtenido": "Solo hay 50 kg disponibles de papa Huamantanga.",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-17",
+  "cu": "CU-07",
+  "descripcion": "Comprar con el correo de un agricultor",
+  "esperado": "Mensaje: usar otro correo; no se registra el pedido",
+  "obtenido": "Ese correo pertenece a una cuenta de agricultor o administrador. Usa otro correo",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-18",
+  "cu": "CU-07",
+  "descripcion": "Segundo pedido con el mismo correo",
+  "esperado": "Se reutiliza el comprador (no se duplica el usuario)",
+  "obtenido": "Usuarios con ese correo: 1",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-19",
+  "cu": "RF-04 / trigger",
+  "descripcion": "Comprar todo el stock restante (50 kg)",
+  "esperado": "El producto pasa a «agotado» y sale del catálogo",
+  "obtenido": "Estado: agotado",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-20",
+  "cu": "CU-09 / RF-07",
+  "descripcion": "Consultar variedades y ver los productos de una variedad",
+  "esperado": "6 variedades; ficha con temporada y beneficios; catálogo filtrado (2 Peruanita)",
+  "obtenido": "6 variedades; 2 productos Peruanita",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-21",
+  "cu": "Seguridad",
+  "descripcion": "Entrar a «Publicar» sin iniciar sesión",
+  "esperado": "Redirige al inicio de sesión",
+  "obtenido": "r=login",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-22",
+  "cu": "Seguridad",
+  "descripcion": "Enviar un formulario sin token CSRF",
+  "esperado": "Solicitud rechazada (400)",
+  "obtenido": "HTTP 400",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-23",
+  "cu": "Inicio de sesión",
+  "descripcion": "Contraseña incorrecta",
+  "esperado": "Mensaje genérico «Correo o contraseña incorrectos»",
+  "obtenido": "Correo o contraseña incorrectos.",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-24",
+  "cu": "CU-01 (4a, 4b)",
+  "descripcion": "Registro con DNI inválido, correo ya registrado y contraseñas distintas",
+  "esperado": "Errores en DNI, correo y confirmación de contraseña",
+  "obtenido": "3 errores mostrados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-25",
+  "cu": "CU-01 / RF-01",
+  "descripcion": "Registro válido de un agricultor",
+  "esperado": "Cuenta creada, sesión iniciada y contraseña guardada con hash bcrypt",
+  "obtenido": "Hash $2y$12$…; redirige a «Publicar»",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-26",
+  "cu": "CU-02 (5a)",
+  "descripcion": "Publicar con precio 0",
+  "esperado": "Error en el precio; no se registra",
+  "obtenido": "El precio por kilo debe ser mayor a S/ 0.00.",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-27",
+  "cu": "CU-02 / Seguridad",
+  "descripcion": "Subir un archivo que no es imagen (renombrado .jpg)",
+  "esperado": "Error: la foto debe ser JPG, PNG o WEBP",
+  "obtenido": "La foto debe ser una imagen JPG, PNG o WEBP.",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-28",
+  "cu": "CU-02 / RF-01",
+  "descripcion": "Publicar un producto válido con foto",
+  "esperado": "Producto «pendiente» con la foto guardada en uploads/",
+  "obtenido": "Estado pendiente; foto uploads/productos/fbe5c83fb4…",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-29",
+  "cu": "CU-02 (post.)",
+  "descripcion": "La publicación pendiente no aparece en el catálogo",
+  "esperado": "No visible hasta su aprobación",
+  "obtenido": "No aparece",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-30",
+  "cu": "Seguridad",
+  "descripcion": "Un agricultor intenta entrar al panel del administrador",
+  "esperado": "Acceso restringido (403)",
+  "obtenido": "Mensaje «Acceso restringido»",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-31",
+  "cu": "CU-03 / Seguridad",
+  "descripcion": "Editar un producto de otro agricultor",
+  "esperado": "No se permite (producto no encontrado)",
+  "obtenido": "Mensaje «No encontramos ese producto…»",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-32",
+  "cu": "Inicio de sesión",
+  "descripcion": "Ingreso del administrador",
+  "esperado": "Abre la bandeja de moderación",
+  "obtenido": "Bandeja «Moderar publicaciones»",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-33",
+  "cu": "CU-10 (4)",
+  "descripcion": "Aprobar una publicación pendiente",
+  "esperado": "Estado «activo»; aparece en el catálogo",
+  "obtenido": "Estado activo",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-34",
+  "cu": "CU-10 (4a)",
+  "descripcion": "Rechazar sin escribir observación",
+  "esperado": "Error: la observación es obligatoria",
+  "obtenido": "Error mostrado; no se rechaza",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-35",
+  "cu": "CU-10 (4a)",
+  "descripcion": "Rechazar con observación",
+  "esperado": "Estado «inactivo» con la observación guardada",
+  "obtenido": "Estado inactivo",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-36",
+  "cu": "CU-10 (3a)",
+  "descripcion": "Retirar una publicación activa",
+  "esperado": "Estado «inactivo»; sale del catálogo",
+  "obtenido": "Estado inactivo",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-37",
+  "cu": "CU-10 → CU-03",
+  "descripcion": "El agricultor ve la observación del rechazo",
+  "esperado": "Observación visible en «Mis productos»",
+  "obtenido": "Observación visible",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-38",
+  "cu": "CU-03 / BPMN TO-BE 1",
+  "descripcion": "Corregir y reenviar una publicación rechazada",
+  "esperado": "Vuelve a «pendiente»",
+  "obtenido": "Estado pendiente",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-39",
+  "cu": "CU-03 (6)",
+  "descripcion": "Editar la cantidad a 0 y luego reponer stock",
+  "esperado": "«agotado» con 0 kg; «activo» al reponer",
+  "obtenido": "agotado → activo 35.00 6.20",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-40",
+  "cu": "CU-03 (3a)",
+  "descripcion": "Dar de baja una publicación",
+  "esperado": "Estado «inactivo» sin observación (De baja)",
+  "obtenido": "Estado inactivo",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-41",
+  "cu": "Seguridad",
+  "descripcion": "Texto con <script> en la comunidad del agricultor",
+  "esperado": "Se muestra como texto; no se ejecuta",
+  "obtenido": "Escapado con htmlspecialchars(); sin alertas",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-42",
+  "cu": "Cierre de sesión",
+  "descripcion": "Salir y volver a una página privada",
+  "esperado": "Redirige al inicio de sesión",
+  "obtenido": "Redirige a «Ingresar»",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-43",
+  "cu": "RFN-01",
+  "descripcion": "Catálogo en un celular (390 px)",
+  "esperado": "Una columna y menú desplegable",
+  "obtenido": "Tarjeta de 358 px de ancho; menú ☰ visible",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-44",
+  "cu": "RFN-02",
+  "descripcion": "Tiempo de carga de 5 páginas (servidor local)",
+  "esperado": "Menos de 3 segundos cada una",
+  "obtenido": "Máximo 0.30 s; promedio 0.11 s",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-45",
+  "cu": "CU-06 / CU-07",
+  "descripcion": "Presionar Enter en un campo de los datos del pedido",
+  "esperado": "Se intenta confirmar (valida los datos); no se quita ningún producto del carrito",
+  "obtenido": "3 productos siguen en el carrito; datos validados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-46",
+  "cu": "CU-07 / RF-05",
+  "descripcion": "El precio cambia (S/ 5.00 → S/ 5.50) antes de confirmar",
+  "esperado": "Aviso con el nuevo precio; no se registra el pedido hasta que el comprador confirme otra vez",
+  "obtenido": "Aviso «…cambió a S/ 5.50 por kilo»; no se registró el pedido",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-47",
+  "cu": "CU-07 / Seguridad",
+  "descripcion": "Pedido con el correo de un comprador ya registrado y otros datos",
+  "esperado": "El resumen muestra solo los datos escritos en este pedido, no los guardados de esa cuenta",
+  "obtenido": "Resumen con «Pedro Ramos Ccahua»; no muestra datos guardados",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-48",
+  "cu": "Seguridad",
+  "descripcion": "Enviar el token CSRF como arreglo (csrf[]=x)",
+  "esperado": "Solicitud rechazada (400), sin error del servidor",
+  "obtenido": "HTTP 400",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-49",
+  "cu": "CU-03 (3a)",
+  "descripcion": "Dar de baja una publicación rechazada enviando el formulario directamente",
+  "esperado": "No se permite; la observación del administrador se conserva",
+  "obtenido": "Estado inactivo; observación conservada",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-50",
+  "cu": "CU-03",
+  "descripcion": "Guardar la edición después de que se vendieron kilos (35 → 30 kg)",
+  "esperado": "Aviso de que el stock cambió; no se sobrescribe la cantidad vendida",
+  "obtenido": "Aviso mostrado; en BD 30.00 kg; el formulario muestra 30 kg",
+  "estado": "Aprobado"
+ },
+ {
+  "id": "CP-51",
+  "cu": "CU-10 (4)",
+  "descripcion": "Aprobar una publicación pendiente con 0 kg",
+  "esperado": "Queda «agotado» (no aparece como disponible)",
+  "obtenido": "Estado agotado",
+  "estado": "Aprobado"
+ }
+]

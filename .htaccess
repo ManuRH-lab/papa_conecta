@@ -1,0 +1,3 @@
+Options -Indexes
+# Solo public/ debe verse desde el navegador
+RedirectMatch 403 ^.*/papa_conecta/(app|config|database|pruebas)(/|$)

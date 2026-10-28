@@ -1,0 +1,13 @@
+# Fotos que suben los agricultores (se conserva solo la carpeta)
+public/uploads/productos/*
+!public/uploads/productos/.gitkeep
+
+# Capturas que generan las pruebas automáticas
+pruebas/capturas/
+
+# Archivos del sistema operativo y del editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+__pycache__/
